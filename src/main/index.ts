@@ -2,7 +2,7 @@ import { app, BrowserWindow } from 'electron'
 import * as path from 'path'
 import { optimizer, is } from '@electron-toolkit/utils'
 
-import { createMircoAppWindow } from './mirco-app'
+import { createMicroAppWindow } from './micro-app'
 
 function createWindow(): void {
   let url = ''
@@ -12,7 +12,7 @@ function createWindow(): void {
     url = path.join(__dirname, '../renderer/view.html')
   }
 
-  createMircoAppWindow(url)
+  createMicroAppWindow(url)
 }
 
 // This method will be called when Electron has finished

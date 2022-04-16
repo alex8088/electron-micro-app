@@ -2,7 +2,7 @@ import { BrowserWindow, BrowserView, ipcMain, shell } from 'electron'
 import * as path from 'path'
 import { platform, is } from '@electron-toolkit/utils'
 
-export function createMircoAppWindow(url: string): void {
+export function createMicroAppWindow(url: string): void {
   // Create the browser window.
   const win = new BrowserWindow({
     backgroundColor: '#FFFFFF',
@@ -14,7 +14,7 @@ export function createMircoAppWindow(url: string): void {
     autoHideMenuBar: true,
     frame: false,
     show: false,
-    titleBarStyle: 'hiddenInset',
+    titleBarStyle: 'hidden',
     ...(platform.isLinux
       ? {
           icon: path.join(__dirname, '../../build/icon.png')
@@ -36,7 +36,6 @@ export function createMircoAppWindow(url: string): void {
   win.webContents.on('dom-ready', () => {
     // win.webContents.openDevTools({ mode: 'undocked' })
     createView(win, url)
-    // win.webContents.send('micro-app:dom-ready')
   })
 
   win.on('close', () => {
